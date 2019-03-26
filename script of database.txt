@@ -1,0 +1,80 @@
+create TABLE users (
+	user_id int(11) not null AUTO_INCREMENT PRIMARY key,
+    user_first varchar(256) not null,
+    user_last varchar(256) not null,
+    user_email varchar(256) not null,
+    user_uid varchar(256) not null,
+    user_pwd varchar(256) not null
+);
+
+create TABLE contacts (
+	user_id int(11) not null,
+    contact_first varchar(256) not null,
+    contact_last varchar(256) not null,
+    contact_no varchar(256) not null,
+    contact_add varchar(256) not null,
+    FOREIGN key (user_id) REFERENCES users(user_id),
+);
+
+
+create TABLE product (
+    user_id int(11) not null, 
+	product_id int(11) not null PRIMARY KEY,
+    desciption varchar(256) not null,
+    price numeric(9,2) not null,
+    unit int(11) not null,
+    FOREIGN key (user_id) REFERENCES users(user_id)
+);
+
+create TABLE customer(
+    user_id int(11) not null, 
+	customer_no int(11) not null PRIMARY KEY AUTO_INCREMENT,
+    first_name varchar(256) not null,
+    last_name varchar(256) not null,
+    contact_no int(11) not null,
+    address varchar(256) not null,
+    FOREIGN key (user_id) REFERENCES users(user_id)
+);
+
+create TABLE employee(
+    user_id int(11) not null, 
+	emp_no int(11) not null PRIMARY KEY AUTO_INCREMENT,
+    first_name varchar(256) not null,
+    last_name varchar(256) not null,
+    position varchar(256) not null,
+    FOREIGN key (user_id) REFERENCES users(user_id)
+);
+
+
+create TABLE sales (
+	sales_id int(11) not null AUTO_INCREMENT PRIMARY KEY,
+    customer_no int(11) not null,
+    product_id int(11) not null,
+    FOREIGN key (customer_no) REFERENCES customer(customer_no),
+    FOREIGN key (product_id) REFERENCES product(product_id)
+);
+
+create TABLE sales (
+	sales_id int(11) not null AUTO_INCREMENT PRIMARY KEY,
+    customer_no int(11) not null,
+    date timestamp,
+    FOREIGN key (customer_no) REFERENCES customer(customer_no)
+);
+
+create TABLE sales_product (
+	sales_id int(11) not null,
+    product_id int(11) not null,
+    desciption varchar(256) not null,
+    price numeric(9,2) not null,
+    FOREIGN key (sales_id) REFERENCES sales(sales_id),
+    FOREIGN key (product_id) REFERENCES product(product_id)
+);
+
+ALTER TABLE `sales` ADD `datecheckout` DATE AUTOCOMMIT not null AFTER `date`;
+
+2 join tables
+SELECT * FROM sales, sales_product WHERE sales.sales_id = sales_product.sales_id;
+
+3 join tables
+
+SELECT * FROM sales, sales_product, customer WHERE sales.sales_id = sales_product.sales_id and sales.customer_no = customer.customer_no;
