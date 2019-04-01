@@ -39,7 +39,7 @@
 						</script>
 					</th>
 					
-					<th scope="col"><a class="text-info" style="float: right;"><form action="includes/logout.inc.php" method="POST"><button type="submit" name="submit" class="btn btn-primary">Logout</button></form></a></th>
+					<th scope="col"><a class="text-info" style="float: right;"><form action="includes/logout.inc.php" method="POST"><button type="submit" name="submit" class="btn btn-primary">Logout <i class="fas fa-sign-out-alt    "></i></button></form></a></th>
 			</tr>
 		  </thead>
 		</table>
@@ -68,8 +68,8 @@
 					  <input type="date" class="form-control" name="enddate" placeholder="last name" style="width: 192px;" required>
 									
 				  <br/>			
-				  <button type="submit" class="btn btn-primary">Submit</button>
-				  <button class="btn btn-light"><a href="sales.php">Reset</a></button>
+				  <button type="submit" class="btn btn-primary"><i class="fas fa-check    "></i> Submit</button>
+				  <button class="btn btn-light"><a href="sales.php"><i class="fas fa-sync-alt    "></i> Reset</a></button>
 				  </div>
 				
 		</form>
@@ -101,15 +101,17 @@
 
 					
 
-					$sql = "SELECT sales_id, customer_no, curdate, curtime, SUM(price*quantity) FROM sales full inner join sales_product USING(sales_id)  GROUP by sales_id desc ;";
+					$sql = "SELECT sales.sales_id, customer.customer_no, customer.first_name, customer.last_name, sales.curdate, sales.curtime, SUM(sales_product.price*sales_product.quantity) as total FROM sales,sales_product,customer WHERE sales.sales_id = sales_product.sales_id AND sales.customer_no = customer.customer_no GROUP BY sales.sales_id DESC;";
 					$result = mysqli_query($conn, $sql);
 					$resultCheck = mysqli_num_rows($result);
 					if ($resultCheck > 0) {
 						while ($row = mysqli_fetch_assoc($result)) {
 						$sales_id = $row["sales_id"];
-						$sum = $row["SUM(price*quantity)"];
+						$sum = $row["total"];
 						$curdate = $row["curdate"];
 						$curtime = $row["curtime"];
+						$first_name = $row["first_name"];
+						$last_name = $row["last_name"];
 						$customer_no = $row["customer_no"];
 						
 
@@ -134,12 +136,12 @@
 
     <tr>
 	      <td><?php echo $sales_id?></td>
-	      <td><?php echo $customer_no;?></td>
+	      <td><?php echo $first_name; echo " ";echo $last_name;?></td>
       <td><?php echo $curdate;?></td>
       <td><?php echo $curtime;?></td>
 
       <td>&#8369; <?php echo $sum;?></td>
-	  <td> <button class="btn btn-light"><a href="viewcheckoutsummary.php?id=<?php echo $sales_id; ?>&no=<?php echo $customer_no; ?>">View</a></button></td>
+	  <td> <button class="btn btn-light"><a href="viewcheckoutsummary.php?id=<?php echo $sales_id; ?>&no=<?php echo $customer_no; ?>"><i class="fas fa-eye    "></i> View</a></button></td>
       
     </tr>
     <?php		

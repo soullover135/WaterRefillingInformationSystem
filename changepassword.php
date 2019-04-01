@@ -41,7 +41,7 @@
 						</script>
 					</th>
 					
-					<th scope="col"><a class="text-info" style="float: right;"><form action="includes/logout.inc.php" method="POST"><button type="submit" name="submit" class="btn btn-primary">Logout</button></form></a></th>
+					<th scope="col"><a class="text-info" style="float: right;"><form action="includes/logout.inc.php" method="POST"><button type="submit" name="submit" class="btn btn-primary">Logout <i class="fas fa-sign-out-alt    "></i></button></form></a></th>
 			</tr>
 		  </thead>
 		</table>
@@ -77,8 +77,8 @@
 				  <div class="form-group">
 					<input type="password"  class="form-control" name="confirmnewpassword" placeholder="first name" style="width: 195px;" pattern=".{8,}"   required title="8 characters minimum" required>
 				  </div>
-				  <button type="submit" name="submit" class="btn btn-primary">Submit</button>
-				  <button class="btn btn-light"><a href="home.php">Cancel</a></button>
+				  <button type="submit" name="submit" class="btn btn-primary"><i class="fas fa-check    "></i> Submit</button>
+				  <button class="btn btn-light"><a href="home.php"><i class="fas fa-arrow-circle-left    "></i> Cancel</a></button>
 		</form>
 	</div>
 	</div>

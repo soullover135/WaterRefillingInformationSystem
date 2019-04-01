@@ -37,7 +37,7 @@
 							}
 						</script>
 					</th>
-					<th scope="col"><a class="text-info" style="float: right;"><form action="includes/logout.inc.php" method="POST"><button type="submit" name="submit" class="btn btn-primary">Logout</button></form></a></th>
+					<th scope="col"><a class="text-info" style="float: right;"><form action="includes/logout.inc.php" method="POST"><button type="submit" name="submit" class="btn btn-primary">Logout <i class="fas fa-sign-out-alt    "></i></button></form></a></th>
 			</tr>
 		  </thead>
 		</table>
@@ -73,7 +73,7 @@
 											
 							?>
 							
-							<input type="text" class="form-control" style="width: 150px;" name="customer_no" value="<?php echo $row["first_name"]; ?>" readonly>
+							<input type="text" class="form-control" style="width: 150px;" name="customer_no" value="<?php echo $row["first_name"]; echo " "; echo $row["last_name"];?>" readonly>
 							
 							<?php		}
 				
@@ -116,8 +116,8 @@
 				
 					<?php $customer = $_GET['no']; ?>
 				  
-				  <button type="submit" name="submit" class="btn btn-primary">Add to Cart</button>
-				  <button class="btn btn-light"><a href="checkoutsummary.php?id=<?php echo $sales_id; ?>&no=<?php echo $customer; ?>">Done</a></button>
+				  <button type="submit" name="submit" class="btn btn-primary"><i class="fas fa-check    "></i> Add to Cart</button>
+				  <button class="btn btn-light"><a href="checkoutsummary.php?id=<?php echo $sales_id; ?>&no=<?php echo $customer; ?>"><i class="fas fa-sign-out-alt    "></i> Done</a></button>
 		</form>
 		<br><br>
 
@@ -173,7 +173,7 @@
 
     <tr>
 	      <td><?php echo $row["product_id"];?></td>
-	      <td><?php echo $row["product_id"];?></td>
+	      <td><?php echo $row["desciption"];?></td>
       <td><center><?php echo $row["quantity"];?></center></td>
       <td>&#8369; <?php echo $row["price"];?></td>
       <td>&#8369; <?php echo $quantityprice;?>.00</td>

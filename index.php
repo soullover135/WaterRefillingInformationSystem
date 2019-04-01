@@ -7,6 +7,7 @@
 <html lang="en-US">
 <head>
 	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="fontawesome/css/all.css">
 	<link href="css/style.css" rel="stylesheet">
 </head>
 <body class="container mainbox" style="width:450px;"><br/><br/>
@@ -33,8 +34,8 @@
 					<label for="exampleInputPassword1">Password</label>
 					<input type="password" name="pwd" class="form-control"  placeholder="Password" >
 				  </div>
-				  <button type="submit" name="submit" class="btn btn-primary" style="width:318px" >Login</button><br><br>
-				  <p>Don't have an account? </a><a href="signup.php">Sign up</a>
+				  <button type="submit" name="submit" class="btn btn-primary" style="width:318px" ><i class="fas fa-sign-in-alt    "></i> Login</button><br><br>
+				  <p>Don't have an account? </a><a href="signup.php"> Sign up</a>
 		</form>
 	</div>
 	<section href="signup.php">

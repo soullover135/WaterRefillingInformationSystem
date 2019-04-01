@@ -39,7 +39,7 @@
 						</script>
 					</th>
 					
-					<th scope="col"><a class="text-info" style="float: right;"><form action="includes/logout.inc.php" method="POST"><button type="submit" name="submit" class="btn btn-primary">Logout</button></form></a></th>
+					<th scope="col"><a class="text-info" style="float: right;"><form action="includes/logout.inc.php" method="POST"><button type="submit" name="submit" class="btn btn-primary">Logout <i class="fas fa-sign-out-alt    "></i></button></form></a></th>
 			</tr>
 		  </thead>
 		</table>
@@ -86,10 +86,10 @@
 				?>
 			<tr>
 			  <th scope="row"><?php echo $row["customer_no"];?></th>
-			  <td><?php echo $row["first_name"]; ?></td>
+			  <td><?php echo $row["first_name"]; echo " "; echo $row["last_name"]; ?></td>
 				<td><?php echo $row["contact_no"]; 	?> </td>
 				<td><?php echo $row["address"]; 	?> </td>
-			  <td><a href="editcustomer.php?id=<?php echo $row["customer_no"]; ?>"><i class="fas fa-user-edit    "></i>Edit </a><a href="includes/deletecustomer.inc.php?id=<?php echo $row["customer_no"]; ?>"> <i class="fa fa-trash" aria-hidden="true"></i>Delete</a></td>
+			  <td><a class="text-primary" href="editcustomer.php?id=<?php echo $row["customer_no"]; ?>"><i class="fas fa-user-edit    "></i> Edit </a><a class="text-danger"  href="includes/deletecustomer.inc.php?id=<?php echo $row["customer_no"]; ?>"> <i class="fa fa-trash" aria-hidden="true"></i> Delete</a></td>
 			</tr>
 			<?php		}
 				

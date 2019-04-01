@@ -12,8 +12,7 @@
 
 
 
+
 	header("Location: ../addproduct.php?save=success");
 	?>
-			<script>{
-				  		alert("Product successfully added!");
-				  	}</script>
+			

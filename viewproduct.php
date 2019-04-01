@@ -39,7 +39,7 @@
 						</script>
 					</th>
 					
-					<th scope="col"><a class="text-info" style="float: right;"><form action="includes/logout.inc.php" method="POST"><button type="submit" name="submit" class="btn btn-primary">Logout</button></form></a></th>
+					<th scope="col"><a class="text-info" style="float: right;"><form action="includes/logout.inc.php" method="POST"><button type="submit" name="submit" class="btn btn-primary">Logout <i class="fas fa-sign-out-alt    "></i></button></form></a></th>
 			</tr>
 		  </thead>
 		</table>
@@ -87,9 +87,9 @@
 			<tr>
 			  <th scope="row"><?php echo $row["product_id"];?></th>
 			  <td><?php echo $row["desciption"]; ?></td>
-				<td><?php echo "$"; echo $row["price"]; 	?> </td>
+				<td><?php echo "Php";echo " "; echo $row["price"]; 	?> </td>
 				<td><?php echo $row["unit"]; 	?> </td>   
-			  <td><a class="text-primary" href="editproduct.php?id=<?php echo $row["product_id"]; ?>"><i class="fas fa-user-edit    "></i>Edit </a><a class="text-danger" href="includes/deleteproduct.inc.php?id=<?php echo $row["product_id"]; ?>"> <i class="fa fa-trash" aria-hidden="true"></i>Delete</a></td>
+			  <td><a class="text-primary" href="editproduct.php?id=<?php echo $row["product_id"]; ?>"><i class="fas fa-user-edit    "></i> Edit </a><a class="text-danger" href="includes/deleteproduct.inc.php?id=<?php echo $row["product_id"]; ?>"> <i class="fa fa-trash" aria-hidden="true"></i> Delete</a></td>
 			</tr>
 			<?php		}
 				

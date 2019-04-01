@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
+-- version 4.7.9
+-- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 26, 2019 at 03:33 AM
--- Server version: 10.1.19-MariaDB
--- PHP Version: 5.6.28
+-- Generation Time: Apr 01, 2019 at 12:19 PM
+-- Server version: 10.1.31-MariaDB
+-- PHP Version: 7.2.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -17,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `wateris`
+-- Database: `wateris2`
 --
 
 -- --------------------------------------------------------
@@ -31,9 +33,17 @@ CREATE TABLE `customer` (
   `customer_no` int(11) NOT NULL,
   `first_name` varchar(256) NOT NULL,
   `last_name` varchar(256) NOT NULL,
-  `contact_no` int(11) NOT NULL,
+  `contact_no` varchar(256) NOT NULL,
   `address` varchar(256) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `customer`
+--
+
+INSERT INTO `customer` (`user_id`, `customer_no`, `first_name`, `last_name`, `contact_no`, `address`) VALUES
+(2, 17, 'Paul', 'David', '2147483647', 'P-2 Mobod'),
+(2, 18, 'Full', 'Pogs', '2147483647', 'Mobod');
 
 -- --------------------------------------------------------
 
@@ -49,6 +59,13 @@ CREATE TABLE `employee` (
   `position` varchar(256) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `employee`
+--
+
+INSERT INTO `employee` (`user_id`, `emp_no`, `first_name`, `last_name`, `position`) VALUES
+(2, 4, 'Paul', 'David', 'Owner');
+
 -- --------------------------------------------------------
 
 --
@@ -60,8 +77,16 @@ CREATE TABLE `product` (
   `product_id` int(11) NOT NULL,
   `desciption` varchar(256) NOT NULL,
   `price` decimal(9,2) NOT NULL,
-  `unit` int(11) NOT NULL
+  `unit` varchar(256) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `product`
+--
+
+INSERT INTO `product` (`user_id`, `product_id`, `desciption`, `price`, `unit`) VALUES
+(2, 12, 'galloon', '100.00', '6'),
+(2, 154, 'Refill', '20.00', '6');
 
 -- --------------------------------------------------------
 
@@ -76,6 +101,13 @@ CREATE TABLE `sales` (
   `curtime` time NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `sales`
+--
+
+INSERT INTO `sales` (`sales_id`, `customer_no`, `curdate`, `curtime`) VALUES
+(67, 17, '2019-04-01', '18:17:04');
+
 -- --------------------------------------------------------
 
 --
@@ -88,6 +120,14 @@ CREATE TABLE `sales_product` (
   `quantity` int(11) NOT NULL,
   `price` decimal(9,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `sales_product`
+--
+
+INSERT INTO `sales_product` (`sales_id`, `product_id`, `quantity`, `price`) VALUES
+(67, 12, 2, '100.00'),
+(67, 154, 2, '20.00');
 
 -- --------------------------------------------------------
 
@@ -164,22 +204,26 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `customer_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `customer_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+
 --
 -- AUTO_INCREMENT for table `employee`
 --
 ALTER TABLE `employee`
-  MODIFY `emp_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `emp_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
 --
 -- AUTO_INCREMENT for table `sales`
 --
 ALTER TABLE `sales`
-  MODIFY `sales_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
+  MODIFY `sales_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
+
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
   MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 --
 -- Constraints for dumped tables
 --
@@ -214,6 +258,7 @@ ALTER TABLE `sales`
 ALTER TABLE `sales_product`
   ADD CONSTRAINT `sales_product_ibfk_1` FOREIGN KEY (`sales_id`) REFERENCES `sales` (`sales_id`),
   ADD CONSTRAINT `sales_product_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `product` (`product_id`);
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

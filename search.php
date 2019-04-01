@@ -39,7 +39,7 @@
 						</script>
 					</th>
 					
-					<th scope="col"><a class="text-info" style="float: right;"><form action="includes/logout.inc.php" method="POST"><button type="submit" name="submit" class="btn btn-primary">Logout</button></form></a></th>
+					<th scope="col"><a class="text-info" style="float: right;"><form action="includes/logout.inc.php" method="POST"><button type="submit" name="submit" class="btn btn-primary">Logout <i class="fas fa-sign-out-alt    "></i></button></form></a></th>
 			</tr>
 		  </thead>
 		</table>
@@ -95,8 +95,11 @@
   				<?php
 				include_once 'includes/dbh.inc.php';
 				$user_id = $_SESSION['u_id'];
-				$startdate = $_GET['startdate'];
-				$enddate = $_GET['enddate'];
+				$startdate1 = $_GET['startdate'];
+				$enddate1 = $_GET['enddate'];
+
+				$startdate = $startdate1.00-00-00;
+				$enddate = $enddate1.24-00-00;
 
 
 					$sql = "SELECT sales_id, customer_no, curdate, curtime, SUM(price*quantity) FROM sales full inner join sales_product USING(sales_id) WHERE curdate between '$startdate' and '$enddate' GROUP by sales_id desc ;";

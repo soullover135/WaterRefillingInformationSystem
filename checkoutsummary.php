@@ -38,7 +38,7 @@
 							}
 						</script>
 					</th>
-					<th scope="col"><a class="text-info" style="float: right;"><form action="includes/logout.inc.php" method="POST"><button type="submit" name="submit" class="btn btn-primary">Logout</button></form></a></th>
+					<th scope="col"><a class="text-info" style="float: right;"><form action="includes/logout.inc.php" method="POST"><button type="submit" name="submit" class="btn btn-primary">Logout <i class="fas fa-sign-out-alt    "></i></button></form></a></th>
 			</tr>
 		  </thead>
 		</table>
@@ -77,7 +77,7 @@
 											
 							?>
 				
-				Customer Name : <b><?php echo $row["first_name"]; ?></b>
+				Customer Name : <b><?php echo $row["first_name"]; echo " "; echo $row["last_name"]; ?></b>
 							
 							
 							
@@ -87,7 +87,7 @@
 							}
 							?>
 				
-							<button class="btn btn-light" style="float:right"><a href="addsalesproduct.php?id=<?php echo $sales_id; ?>&no=<?php echo $customer; ?>">Edit Checkout</a></button><br><br>
+							<button class="btn btn-light" style="float:right"><a href="addsalesproduct.php?id=<?php echo $sales_id; ?>&no=<?php echo $customer; ?>"><i class="fas fa-user-edit    "></i> Edit Checkout</a></button><br><br>
 		
 		
 		<table class="table">
@@ -127,7 +127,7 @@
 
     <tr>
 	      <td><?php echo $row["product_id"];?></td>
-	      <td><?php echo $row["product_id"];?></td>
+	      <td><?php echo $row["desciption"];?></td>
       <td><center><?php echo $row["quantity"];?></center></td>
       <td>&#8369; <?php echo $row["price"];?></td>
       <td>&#8369; <?php echo $quantityprice;?>.00</td>
@@ -147,7 +147,7 @@
 					 </h1></b><center>
 		</div>	
 		<center>
-		<button class="btn btn-light"><a href="sales.php"> Finish </a></button></center>
+		<button class="btn btn-light"><a href="sales.php"><i class="fas fa-check    "></i> Finish </a></button></center>
 	</div>
 		
 		

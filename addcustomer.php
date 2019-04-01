@@ -38,7 +38,7 @@
 									</script>
 								</th>
 						
-					<th scope="col"><a class="text-info" style="float: right;"><form action="includes/logout.inc.php" method="POST"><button type="submit" name="submit" class="btn btn-primary">Logout</button></form></a></th>
+					<th scope="col"><a class="text-info" style="float: right;"><form action="includes/logout.inc.php" method="POST"><button type="submit" name="submit" class="btn btn-primary">Logout <i class="fas fa-sign-out-alt    "></i></button></form></a></th>
 			</tr>
 		  </thead>
 		</table>
@@ -72,10 +72,10 @@
 				  </div>
 				  <div class="form-group">
 					<label for="inputAddress">Address</label>
-					<input type="text" class="form-control" name="address" placeholder="address" required>
+					<textarea class="form-control" name="address" placeholder="address" required></textarea>
 				  </div>
-				  <button type="submit" name="submit" class="btn btn-primary">Submit</button>
-				  <button class="btn btn-light"><a href="viewcustomer.php">Cancel</a></button>
+				  <button type="submit" name="submit" class="btn btn-primary"><i class="fas fa-check    "></i> Submit</button>
+				  <button class="btn btn-light"><a href="viewcustomer.php"><i class="fas fa-arrow-circle-left    "></i> Cancel</a></button>
 		</form>
 	</div>
 </body>

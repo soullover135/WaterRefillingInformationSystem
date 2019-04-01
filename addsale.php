@@ -38,7 +38,7 @@
 						</script>
 					</th>
 					
-					<th scope="col"><a class="text-info" style="float: right;"><form action="includes/logout.inc.php" method="POST"><button type="submit" name="submit" class="btn btn-primary">Logout</button></form></a></th>
+					<th scope="col"><a class="text-info" style="float: right;"><form action="includes/logout.inc.php" method="POST"><button type="submit" name="submit" class="btn btn-primary">Logout <i class="fas fa-sign-out-alt    "></i></button></form></a></th>
 			</tr>
 		  </thead>
 		</table>
@@ -77,7 +77,7 @@
 								while ($row = mysqli_fetch_assoc($result)) {
 						?>
 							
-							<option value="<?php echo $row["customer_no"];?>"><?php echo $row["first_name"];?></option>
+							<option value="<?php echo $row["customer_no"];?>"><?php echo $row["first_name"];echo " ";echo $row["last_name"];?></option>
 						<?php		}
 			
 						}
@@ -87,8 +87,8 @@
 				
 				  <br/>				
 				  
-				  <button type="submit" name="submit" class="btn btn-primary">Submit</button>
-				  <button class="btn btn-light"><a href="sales.php">Cancel</a></button>
+				  <button type="submit" name="submit" class="btn btn-primary"><i class="fas fa-check    "></i> Submit</button>
+				  <button class="btn btn-light"><a href="sales.php"><i class="fas fa-arrow-circle-left    "></i> Cancel</a></button>
 		</form>
 	</div>
 </body>

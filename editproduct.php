@@ -37,7 +37,7 @@
 						</script>
 					</th>
 					
-					<th scope="col"><a class="text-info" style="float: right;"><form action="includes/logout.inc.php" method="POST"><button type="submit" name="submit" class="btn btn-primary">Logout</button></form></a></th>
+					<th scope="col"><a class="text-info" style="float: right;"><form action="includes/logout.inc.php" method="POST"><button type="submit" name="submit" class="btn btn-primary">Logout <i class="fas fa-sign-out-alt    "></i></button></form></a></th>
 			</tr>
 		  </thead>
 		</table>
@@ -84,7 +84,7 @@
 				  </div>
 				  <div class="form-group">
 					<label for="inputPrice">Price</label>
-					<input type="text" class="form-control" name="price" value="<?php echo $row["price"]; 	?> " >
+					<input type="number" min="0.00" class="form-control" name="price" value="<?php echo $row["price"]; 	?> " >
 				  </div>
 				  <div class="form-group">
 					<label for="inputUnit">Unit</label>
